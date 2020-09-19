@@ -1,2 +1,2 @@
 # SixLaborsCaptcha
-Generator captcha with SixLabors' libraries on .NET Core
+Generate captcha with SixLabors' libraries on .NET Core
