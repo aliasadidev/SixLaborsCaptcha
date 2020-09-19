@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "SixLaborsCaptcha";
+	
+}
+
+	<div class="text-center">
+		<h1 class="display-4">Welcome to SixLaborsCaptcha</h1>
+		<img src='@Url.Action("GetCaptchaImage","Home")?v1' />
+		<br />
+		<img src='@Url.Action("GetCaptchaImage","Home")?v2' />
+		<br />
+		<img src='@Url.Action("GetCaptchaImage","Home")?v3' />
+		<br />
+		<img src='@Url.Action("GetCaptchaImage","Home")?v4' />
+	</div>

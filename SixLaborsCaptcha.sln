@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0C41BA56-8E5A-4FC3-97F2-2B78265D81AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SixLaborsCaptcha.Core", "src\SixLaborsCaptcha.Core\SixLaborsCaptcha.Core.csproj", "{547C5055-635D-4CEE-A3A8-3F637120A270}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{40A809F0-84F5-4C33-AAC8-EF6532A35771}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{8DEE78C4-7899-4B91-8639-0782D01DA867}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppSample", "samples\ConsoleAppSample\ConsoleAppSample.csproj", "{E8E36D34-C52A-4B90-8BA6-4947C4306A60}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreWebAppSample", "samples\AspNetCoreWebAppSample\AspNetCoreWebAppSample.csproj", "{1538065F-390B-42FF-8530-33825ADE3613}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SixLaborsCaptcha.Mvc.Core", "src\SixLaborsCaptcha.Mvc.Core\SixLaborsCaptcha.Mvc.Core.csproj", "{3F6DF651-07F7-4409-98F2-5E5804348B4F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{547C5055-635D-4CEE-A3A8-3F637120A270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{547C5055-635D-4CEE-A3A8-3F637120A270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{547C5055-635D-4CEE-A3A8-3F637120A270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{547C5055-635D-4CEE-A3A8-3F637120A270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8E36D34-C52A-4B90-8BA6-4947C4306A60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8E36D34-C52A-4B90-8BA6-4947C4306A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8E36D34-C52A-4B90-8BA6-4947C4306A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8E36D34-C52A-4B90-8BA6-4947C4306A60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1538065F-390B-42FF-8530-33825ADE3613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1538065F-390B-42FF-8530-33825ADE3613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1538065F-390B-42FF-8530-33825ADE3613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1538065F-390B-42FF-8530-33825ADE3613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F6DF651-07F7-4409-98F2-5E5804348B4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F6DF651-07F7-4409-98F2-5E5804348B4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F6DF651-07F7-4409-98F2-5E5804348B4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F6DF651-07F7-4409-98F2-5E5804348B4F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{547C5055-635D-4CEE-A3A8-3F637120A270} = {0C41BA56-8E5A-4FC3-97F2-2B78265D81AA}
+		{E8E36D34-C52A-4B90-8BA6-4947C4306A60} = {8DEE78C4-7899-4B91-8639-0782D01DA867}
+		{1538065F-390B-42FF-8530-33825ADE3613} = {8DEE78C4-7899-4B91-8639-0782D01DA867}
+		{3F6DF651-07F7-4409-98F2-5E5804348B4F} = {0C41BA56-8E5A-4FC3-97F2-2B78265D81AA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C727C368-D38B-4E87-891F-C3846DE87A45}
+	EndGlobalSection
+EndGlobal

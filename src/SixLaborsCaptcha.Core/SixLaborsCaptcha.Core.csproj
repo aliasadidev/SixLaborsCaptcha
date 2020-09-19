@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>SixLaborsCaptcha.Core</AssemblyName>
+    <RootNamespace>SixLaborsCaptcha.Core</RootNamespace>
+		<Version>0.1.0</Version>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SixLabors.ImageSharp" Version="1.0.1" />
+		<PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta0010" />
+	</ItemGroup>
+	
+</Project>

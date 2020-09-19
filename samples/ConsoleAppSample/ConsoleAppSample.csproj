@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+		<Version>0.1.0</Version>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SixLabors.ImageSharp" Version="1.0.1" />
+		<PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta0010" />
+	</ItemGroup>
+	
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\SixLaborsCaptcha.Core\SixLaborsCaptcha.Core.csproj" />
+  </ItemGroup>
+
+</Project>
