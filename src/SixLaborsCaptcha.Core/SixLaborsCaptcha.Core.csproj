@@ -1,11 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>SixLaborsCaptcha.Core</AssemblyName>
-    <RootNamespace>SixLaborsCaptcha.Core</RootNamespace>
-		<Version>0.1.0</Version>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<AssemblyName>SixLaborsCaptcha.Core</AssemblyName>
+		<RootNamespace>SixLaborsCaptcha.Core</RootNamespace>
+		<Version>0.1.1</Version>
+		<RepositoryUrl>https://github.com/aliasadidev/SixLaborsCaptcha</RepositoryUrl>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="SixLabors.ImageSharp" Version="1.0.1" />

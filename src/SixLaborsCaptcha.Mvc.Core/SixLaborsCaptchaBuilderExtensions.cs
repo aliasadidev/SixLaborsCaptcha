@@ -6,7 +6,7 @@ namespace SixLaborsCaptcha.Mvc.Core
 {
 	public static class SixLaborsCaptchaBuilderExtensions
 	{
-		public static IServiceCollection UseSixLabCaptcha(
+		public static IServiceCollection AddSixLabCaptcha(
 		   this IServiceCollection services,
 		   Action<SixLaborsCaptchaOptions> setupAction = null)
 		{
