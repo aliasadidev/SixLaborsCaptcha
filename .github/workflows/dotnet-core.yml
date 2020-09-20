@@ -1,0 +1,37 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Publish SixLaborsCaptcha.Core
+      uses: brandedoutcast/publish-nuget@v2.5.2
+      with:
+          PROJECT_FILE_PATH: src/SixLaborsCaptcha.Core/SixLaborsCaptcha.Core.csproj
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+    - name: Build-mvc
+      run: dotnet build --configuration Release --no-restore
+    - name: Publish SixLaborsCaptcha.Mvc.Core
+      uses: brandedoutcast/publish-nuget@v2.5.2
+      with:
+          PROJECT_FILE_PATH: src/SixLaborsCaptcha.Mvc.Core/SixLaborsCaptcha.Mvc.Core.csproj
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+#    - name: Test
+#      run: dotnet test --no-restore --verbosity normal
