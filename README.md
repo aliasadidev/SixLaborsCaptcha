@@ -13,8 +13,8 @@ Generate captcha with SixLabors' libraries on .NET Core (run in both `Windows` a
 
 |Property|Description|
 |---------|-----------|
-|FontFamilies| Characters fonts, default is "Arial", "Verdana", "Times New Roman"|
-|TextColor|  Characters colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green } `Notice: This default fonts working only on Windows, if you want to run it on Linux you should use the Linux fonts`|
+|FontFamilies| Characters fonts, default is "Arial", "Verdana", "Times New Roman" <br/> `Notice: This default fonts working only on Windows, if you want to run it on Linux you should use the Linux fonts`|
+|TextColor|  Characters colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green } |
 |DrawLinesColor| Line colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green }|
 |Width| Width of image box, default is 180 |
 |Height| Height of image box, default is 50 |
