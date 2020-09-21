@@ -14,7 +14,7 @@ Generate captcha with SixLabors' libraries on .NET Core (run in both `Windows` a
 |Property|Description|
 |---------|-----------|
 |FontFamilies| Characters fonts, default is "Arial", "Verdana", "Times New Roman"|
-|TextColor|  Characters colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green }|
+|TextColor|  Characters colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green } `Notice:` This default fonts working only on Windows, if you want to run it on Linux you should use Linux fonts|
 |DrawLinesColor| Line colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green }|
 |Width| Width of image box, default is 180 |
 |Height| Height of image box, default is 50 |
@@ -114,4 +114,20 @@ public FileResult GetCaptchaImage([FromServices] ISixLaborsCaptchaModule sixLabo
 ![result](/samples/images/six-labors-captcha-4.png?raw=true "six-labors-captcha")
 ![result](/samples/images/six-labors-captcha-5.png?raw=true "six-labors-captcha")
 
+
+### Run asp.net core mvc app on Linux os: ###
+1. Download a font (also, you can use the system fonts and don't needs to do this step)
+```
+wget -O ~/Downloads/marlboro.zip https://www.1001freefonts.com/d/3761/marlboro.zip
+unzip -p ~/Downloads/marlboro.zip Marlboro.ttf > ~/Downloads/Marlboro.ttf
+rm ~/Downloads/marlboro.zip
+cp ~/Downloads/Marlboro.ttf ~/.fonts/
+```
+2. Config the serivce
+```csharp
+
+services.AddSixLabCaptcha(x => {
+			   x.FontFamilies = new string[] { "Marlboro" };
+		         });
+```
 
