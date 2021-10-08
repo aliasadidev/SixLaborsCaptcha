@@ -5,88 +5,103 @@ using SixLabors.ImageSharp.Drawing.Processing;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
 using System.IO;
+using System.Threading.Tasks;
+using System.Numerics;
 
 namespace SixLaborsCaptcha.Core
 {
-	public class SixLaborsCaptchaModule : ISixLaborsCaptchaModule
-	{
-		private readonly SixLaborsCaptchaOptions _options;
-		public SixLaborsCaptchaModule(SixLaborsCaptchaOptions options)
-		{
-			_options = options;
-		}
+  public class SixLaborsCaptchaModule : ISixLaborsCaptchaModule
+  {
+    private readonly SixLaborsCaptchaOptions _options;
+    public SixLaborsCaptchaModule(SixLaborsCaptchaOptions options)
+    {
+      _options = options;
+    }
 
-		public byte[] Generate(string stringText)
-		{
-			byte[] result;
+    public byte[] Generate(string stringText)
+    {
+      byte[] result;
 
-			using (var imgText = new Image<Rgba32>(_options.Width, _options.Height))
-			{
-				float position = 0;
-				Random random = new Random();
-				byte startWith = (byte)random.Next(5, 10);
-				imgText.Mutate(ctx => ctx.BackgroundColor(Color.Transparent));
+      using (var imgText = new Image<Rgba32>(_options.Width, _options.Height))
+      {
+        float position = 0;
+        Random random = new Random();
+        byte startWith = (byte)random.Next(5, 10);
+        imgText.Mutate(ctx => ctx.BackgroundColor(Color.Transparent));
 
-				string fontName = _options.FontFamilies[random.Next(0, _options.FontFamilies.Length)];
-				Font font = SystemFonts.CreateFont(fontName, _options.FontSize, _options.FontStyle);
+        string fontName = _options.FontFamilies[random.Next(0, _options.FontFamilies.Length)];
+        Font font = SystemFonts.CreateFont(fontName, _options.FontSize, _options.FontStyle);
 
-				foreach (char c in stringText)
-				{
-					var location = new PointF(startWith + position, 8);
-					imgText.Mutate(ctx => ctx.DrawText(c.ToString(), font, _options.TextColor[random.Next(0, _options.TextColor.Length)], location));
-					position += TextMeasurer.Measure(c.ToString(), new RendererOptions(font, location)).Width;
-				}
+        foreach (char c in stringText)
+        {
+          var location = new PointF(startWith + position, random.Next(6, 13));
+          imgText.Mutate(ctx => ctx.DrawText(c.ToString(), font, _options.TextColor[random.Next(0, _options.TextColor.Length)], location));
+          position += TextMeasurer.Measure(c.ToString(), new RendererOptions(font, location)).Width;
+        }
 
-				//add rotation 
-				AffineTransformBuilder rotation = getRotation();
-				imgText.Mutate(ctx => ctx.Transform(rotation));
+        //add rotation
+        AffineTransformBuilder rotation = getRotation();
+        imgText.Mutate(ctx => ctx.Transform(rotation));
 
-				// add the dynamic image to original image
-				ushort size = (ushort)TextMeasurer.Measure(stringText, new RendererOptions(font)).Width;
-				var img = new Image<Rgba32>(size + 10 + 5, _options.Height);
-				img.Mutate(ctx => ctx.BackgroundColor(Color.White));
+        // add the dynamic image to original image
+        ushort size = (ushort)TextMeasurer.Measure(stringText, new RendererOptions(font)).Width;
+        var img = new Image<Rgba32>(size + 10 + 5, _options.Height);
+        img.Mutate(ctx => ctx.BackgroundColor(Color.White));
 
 
+        Parallel.For(0, _options.DrawLines, i =>
+        {
+          int x0 = random.Next(0, random.Next(0, 30));
+          int y0 = random.Next(10, img.Height);
+          int x1 = random.Next(70, img.Width);
+          int y1 = random.Next(0, img.Height);
+          img.Mutate(ctx =>
+                  ctx.DrawLines(_options.TextColor[random.Next(0, _options.TextColor.Length)],
+                                Extentions.GenerateNextFloat(_options.MinLineThickness, _options.MaxLineThickness),
+                                new PointF[] { new PointF(x0, y0), new PointF(x1, y1) })
+                  );
+        });
 
-				for (int i = 0; i < _options.DrawLines; i++)
-				{
-					int x0 = random.Next(0, 20);
-					int y0 = random.Next(10, img.Height);
-					int x1 = random.Next(70, img.Width);
-					int y1 = random.Next(0, img.Height);
-					img.Mutate(ctx =>
-					ctx.DrawLines(_options.TextColor[random.Next(0, _options.TextColor.Length)],
-								  (float)new Random().NextDouble() * 2.5f * 0.7f,
-								  new PointF[] { new PointF(x0, y0), new PointF(x1, y1) })
-					);
-				}
+        img.Mutate(ctx => ctx.DrawImage(imgText, 0.80f));
 
-				img.Mutate(ctx => ctx.DrawImage(imgText, 0.80f));
+        Parallel.For(0, _options.NoiseRate, i =>
+        {
+          int x0 = random.Next(0, img.Width);
+          int y0 = random.Next(0, img.Height);
+          img.Mutate(
+                      ctx => ctx
+                          .DrawLines(_options.NoiseRateColor[random.Next(0, _options.NoiseRateColor.Length)],
+                          Extentions.GenerateNextFloat(0.5, 1.5), new PointF[] { new Vector2(x0, y0), new Vector2(x0, y0) })
+                  );
+        });
 
-				img.Mutate(x => x.Resize(_options.Width, _options.Height));
+        img.Mutate(x =>
+        {
+          x.Resize(_options.Width, _options.Height);
+        });
 
-				using (var ms = new MemoryStream())
-				{
-					img.Save(ms, _options.Encoder);
-					result = ms.ToArray();
-				}
-			}
+        using (var ms = new MemoryStream())
+        {
+          img.Save(ms, _options.Encoder);
+          result = ms.ToArray();
+        }
+      }
 
-			return result;
+      return result;
 
-		}
+    }
 
-		private AffineTransformBuilder getRotation()
-		{
-			Random random = new Random();
-			var builder = new AffineTransformBuilder();
-			var width = random.Next(10, _options.Width);
-			var height = random.Next(10, _options.Height);
-			var pointF = new PointF(width, height);
-			var rotationDegrees = random.Next(0, _options.MaxRotationDegrees);
-			var result = builder.PrependRotationDegrees(rotationDegrees, pointF);
-			return result;
-		}
+    private AffineTransformBuilder getRotation()
+    {
+      Random random = new Random();
+      var builder = new AffineTransformBuilder();
+      var width = random.Next(10, _options.Width);
+      var height = random.Next(10, _options.Height);
+      var pointF = new PointF(width, height);
+      var rotationDegrees = random.Next(0, _options.MaxRotationDegrees);
+      var result = builder.PrependRotationDegrees(rotationDegrees, pointF);
+      return result;
+    }
 
-	}
+  }
 }
