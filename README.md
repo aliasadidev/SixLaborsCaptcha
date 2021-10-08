@@ -1,19 +1,36 @@
 # SixLaborsCaptcha
-Generate captcha with SixLabors' libraries on .NET Core (run in both `Windows` and `Linux` environments)
+Generating image captcha with .net core/.net 5+ in both `Linux` and `Windows` environments 
+
+## Features
+
+- Simple & Cross-Platform
+- Compatible with Linux and Windows
+- Compatible with Docker images based on Linux :)
+
+
+# What's New
+
+## Version 0.1.3 - Oct 8, 2021
+#### Add
+* Add NoiseRateColor/NoiseRate options
+* Add MinLineThickness/MaxLineThickness options
+#### Change
+* Improve the rendering speed
+* Improve the captcha image security
 
 
 ## Packages
 
 |Package|Description|
 |---------|-----------|
-|SixLaborsCaptcha.Core|It can be used in ConsoleApp, WinForms, and etc..|
-|SixLaborsCaptcha.Mvc.Core|It can be used in ASP.NET MVC Core and ASP.NET Web API Core|
+|SixLaborsCaptcha.Core|Using for ConsoleApp, WebAPI, WinForms, and etc..|
+|SixLaborsCaptcha.Mvc.Core|Using for ASP.NET MVC Core and ASP.NET Web API Core|
 
 ## SixLaborsCaptchaOptions
 
 |Property|Description|
 |---------|-----------|
-|FontFamilies| Characters fonts, default is "Arial", "Verdana", "Times New Roman" <br/> `Notice: This default fonts working only on Windows, if you want to run it on Linux you should use the Linux fonts`|
+|FontFamilies| Characters fonts, default is "Arial", "Verdana", "Times New Roman" <br/> `Notice: This default fonts working only on Windows, if you want to run it on Linux you have to use the Linux fonts`|
 |TextColor|  Characters colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green } |
 |DrawLinesColor| Line colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green }|
 |Width| Width of image box, default is 180 |
@@ -23,6 +40,11 @@ Generate captcha with SixLabors' libraries on .NET Core (run in both `Windows` a
 |EncoderType| Result file formant: Jpeg,Png|
 |DrawLines| Draw the random lines, default is 5|
 |MaxRotationDegrees| Rotation degrees, default is 5|
+|MinLineThickness| Min Line Thickness, default is 0.7f|
+|MaxLineThickness| Max Line Thickness, default is 2.0f|
+|NoiseRate| Noise Rate, default is 800|
+|NoiseRateColor| Noise colors, default is { Color.Gray }|
+
 
 ## Install via NuGet
 
