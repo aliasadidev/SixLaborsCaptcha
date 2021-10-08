@@ -1,4 +1,4 @@
-name: .NET Core
+name: publish to nuget package manager
 
 on:
   push:
@@ -13,10 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup .NET Core
+    - name: Setup publish
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.301
+        dotnet-version: 5.0.401
     - name: Install dependencies
       run: dotnet restore
     - name: Build
