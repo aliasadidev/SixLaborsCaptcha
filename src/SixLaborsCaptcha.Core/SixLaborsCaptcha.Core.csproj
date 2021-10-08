@@ -6,9 +6,13 @@
     <Version>0.1.3</Version>
     <RepositoryUrl>https://github.com/aliasadidev/SixLaborsCaptcha</RepositoryUrl>
     <PackageDescription>Generate captcha with SixLabors' libraries on .NET Core (run in both Windows and Linux environments)</PackageDescription>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.4"/>
     <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta13"/>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
   </ItemGroup>
 </Project>
