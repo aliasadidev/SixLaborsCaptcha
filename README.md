@@ -1,5 +1,5 @@
 # SixLaborsCaptcha
-Generating image captcha with .net core/.net 5+ in both `Linux` and `Windows` environments 
+SixLaborsCaptcha is a simple cross-platform NuGet package for generating image captcha.
 
 ## Features
 
@@ -46,12 +46,12 @@ Generating image captcha with .net core/.net 5+ in both `Linux` and `Windows` en
 |NoiseRateColor| Noise colors, default is { Color.Gray }|
 
 
-## Install via NuGet
+## Install via CLI
 
-### To install SixLaborsCaptcha.Core, run the following command in the Package Manager Console: ###
+### To install SixLaborsCaptcha.Core, run the following command in the terminal: ###
 
 ```
-PM> Install-Package SixLaborsCaptcha.Core
+> dotnet add package SixLaborsCaptcha.Core --version 0.1.3
 ```
 
 ## Usage:
@@ -83,9 +83,9 @@ namespace ConsoleAppSample
 ![result](/samples/images/six-labors-captcha-3.png?raw=true "six-labors-captcha")
 
 
-### To install SixLaborsCaptcha.Mvc.Core for ASP.NET Core MVC, run the following command in the Package Manager Console: ###
+### To install SixLaborsCaptcha.Mvc.Core for ASP.NET Core MVC, run the following command in the Terminal: ###
 ```
-PM> Install-Package SixLaborsCaptcha.Mvc.Core
+> dotnet add package SixLaborsCaptcha.Mvc.Core --version 0.1.3
 ```
 ## Usage:
 1. In the ConfigureServices method of Startup.cs, register the AddSixLabCaptcha generator
@@ -144,6 +144,10 @@ wget -O ~/Downloads/marlboro.zip https://www.1001freefonts.com/d/3761/marlboro.z
 unzip -p ~/Downloads/marlboro.zip Marlboro.ttf > ~/Downloads/Marlboro.ttf
 rm ~/Downloads/marlboro.zip
 cp ~/Downloads/Marlboro.ttf ~/.fonts/
+# other paths
+# ~/.fonts/ - for your own fonts.
+# /usr/local/share/fonts/ - system-wide, user installed fonts.
+# /usr/share/fonts/ - system's font location.
 ```
 2. Config the serivce
 ```csharp
