@@ -56,7 +56,7 @@ namespace SixLaborsCaptcha.Core
           int x1 = random.Next(70, img.Width);
           int y1 = random.Next(0, img.Height);
           img.Mutate(ctx =>
-                  ctx.DrawLines(_options.TextColor[random.Next(0, _options.TextColor.Length)],
+                  ctx.DrawLines(_options.DrawLinesColor[random.Next(0, _options.DrawLinesColor.Length)],
                                 Extentions.GenerateNextFloat(_options.MinLineThickness, _options.MaxLineThickness),
                                 new PointF[] { new PointF(x0, y0), new PointF(x1, y1) })
                   );
