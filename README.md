@@ -10,7 +10,10 @@ SixLaborsCaptcha is a simple cross-platform NuGet package for generating image c
 
 # What's New
 
-## Version 0.1.3 - Oct 8, 2021
+## Version 0.1.5 - Mar 30, 2022
+#### Fix
+* Update readme file
+## Version 0.1.4 - Mar 30, 2022
 #### Fix
 * Use DrawLinesColor instead of TextColor in creating random lines (#2 by @NK201)
 
@@ -84,7 +87,7 @@ namespace ConsoleAppSample
 }
 
 ```
-![result](/samples/images/six-labors-captcha-3.png?raw=true "six-labors-captcha")
+![result](https://raw.githubusercontent.com/aliasadidev/SixLaborsCaptcha/master/samples/images/six-labors-captcha-3.png?raw=true "six-labors-captcha")
 
 
 ### To install SixLaborsCaptcha.Mvc.Core for ASP.NET Core MVC, run the following command in the Terminal: ###
@@ -135,10 +138,10 @@ public FileResult GetCaptchaImage([FromServices] ISixLaborsCaptchaModule sixLabo
 	<img src='@Url.Action("GetCaptchaImage","Home")?v4' />
 </div>
 ```
-![result](/samples/images/six-labors-captcha-1.png?raw=true "six-labors-captcha")
-![result](/samples/images/six-labors-captcha-2.png?raw=true "six-labors-captcha")
-![result](/samples/images/six-labors-captcha-4.png?raw=true "six-labors-captcha")
-![result](/samples/images/six-labors-captcha-5.png?raw=true "six-labors-captcha")
+![result](https://raw.githubusercontent.com/aliasadidev/SixLaborsCaptcha/master/samples/images/six-labors-captcha-1.png?raw=true "six-labors-captcha")
+![result](https://raw.githubusercontent.com/aliasadidev/SixLaborsCaptcha/master/samples/images/six-labors-captcha-2.png?raw=true "six-labors-captcha")
+![result](https://raw.githubusercontent.com/aliasadidev/SixLaborsCaptcha/master/samples/images/six-labors-captcha-4.png?raw=true "six-labors-captcha")
+![result](https://raw.githubusercontent.com/aliasadidev/SixLaborsCaptcha/master/samples/images/six-labors-captcha-5.png?raw=true "six-labors-captcha")
 
 
 ### Run asp.net core mvc app on Linux os: ###
@@ -160,4 +163,4 @@ services.AddSixLabCaptcha(x => {
 			   x.FontFamilies = new string[] { "Marlboro" };
 		         });
 ```
-![linux-result](/samples/images/six-labors-captcha-6.png?raw=true "six-labors-captcha-linux")
+![linux-result](https://raw.githubusercontent.com/aliasadidev/SixLaborsCaptcha/master/samples/images/six-labors-captcha-6.png?raw=true "six-labors-captcha-linux")
