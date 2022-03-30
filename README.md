@@ -11,6 +11,10 @@ SixLaborsCaptcha is a simple cross-platform NuGet package for generating image c
 # What's New
 
 ## Version 0.1.3 - Oct 8, 2021
+#### Fix
+* Use DrawLinesColor instead of TextColor in creating random lines (#2 by @NK201)
+
+## Version 0.1.3 - Oct 8, 2021
 #### Add
 * Add NoiseRateColor/NoiseRate options
 * Add MinLineThickness/MaxLineThickness options
