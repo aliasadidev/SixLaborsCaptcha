@@ -3,7 +3,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>SixLaborsCaptcha.Core</AssemblyName>
     <RootNamespace>SixLaborsCaptcha.Core</RootNamespace>
-    <Version>0.1.4</Version>
+    <Version>0.1.5</Version>
     <RepositoryUrl>https://github.com/aliasadidev/SixLaborsCaptcha</RepositoryUrl>
     <PackageDescription>Generate captcha with SixLabors' libraries on .NET Core (run in both Windows and Linux environments)</PackageDescription>
     <PackageReadmeFile>README.md</PackageReadmeFile>
