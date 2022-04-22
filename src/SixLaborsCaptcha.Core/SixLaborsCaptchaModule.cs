@@ -36,7 +36,7 @@ namespace SixLaborsCaptcha.Core
         {
           var location = new PointF(startWith + position, random.Next(6, 13));
           imgText.Mutate(ctx => ctx.DrawText(c.ToString(), font, _options.TextColor[random.Next(0, _options.TextColor.Length)], location));
-          position += TextMeasurer.Measure(c.ToString(), new RendererOptions(font, location)).Width;
+          position += TextMeasurer.Measure(c.ToString(), new TextOptions(font)).Width;
         }
 
         //add rotation
@@ -44,7 +44,7 @@ namespace SixLaborsCaptcha.Core
         imgText.Mutate(ctx => ctx.Transform(rotation));
 
         // add the dynamic image to original image
-        ushort size = (ushort)TextMeasurer.Measure(stringText, new RendererOptions(font)).Width;
+        ushort size = (ushort)TextMeasurer.Measure(stringText, new TextOptions(font)).Width;
         var img = new Image<Rgba32>(size + 10 + 5, _options.Height);
         img.Mutate(ctx => ctx.BackgroundColor(Color.White));
 

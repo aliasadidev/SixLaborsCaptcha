@@ -84,3 +84,4 @@ packages
 
 # Ignore Development Environment Configurations
 #**/*.Development.json
+.idea/*

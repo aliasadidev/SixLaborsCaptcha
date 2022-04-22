@@ -10,6 +10,10 @@ SixLaborsCaptcha is a simple cross-platform NuGet package for generating image c
 
 # What's New
 
+## Version 0.2.0 - Apr 22, 2022
+#### Change
+* Upgrade SixLabors.ImageSharp to 2.1.1
+*  **⚠ WARNING: This version incompatible with the previous version of SixLabors.ImageSharp 1.0.0+** 
 ## Version 0.1.5 - Mar 30, 2022
 #### Fix
 * Update readme file
@@ -28,29 +32,29 @@ SixLaborsCaptcha is a simple cross-platform NuGet package for generating image c
 
 ## Packages
 
-|Package|Description|
-|---------|-----------|
-|SixLaborsCaptcha.Core|Using for ConsoleApp, WebAPI, WinForms, and etc..|
-|SixLaborsCaptcha.Mvc.Core|Using for ASP.NET MVC Core and ASP.NET Web API Core|
+| Package                   | Description                                         |
+| ------------------------- | --------------------------------------------------- |
+| SixLaborsCaptcha.Core     | Using for ConsoleApp, WebAPI, WinForms, and etc..   |
+| SixLaborsCaptcha.Mvc.Core | Using for ASP.NET MVC Core and ASP.NET Web API Core |
 
 ## SixLaborsCaptchaOptions
 
-|Property|Description|
-|---------|-----------|
-|FontFamilies| Characters fonts, default is "Arial", "Verdana", "Times New Roman" <br/> `Notice: This default fonts working only on Windows, if you want to run it on Linux you have to use the Linux fonts`|
-|TextColor|  Characters colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green } |
-|DrawLinesColor| Line colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green }|
-|Width| Width of image box, default is 180 |
-|Height| Height of image box, default is 50 |
-|FontSize| Font size, default is 29 |
-|FontStyle| Font Style: Regular,Bold,Italic,BoldItalic |
-|EncoderType| Result file formant: Jpeg,Png|
-|DrawLines| Draw the random lines, default is 5|
-|MaxRotationDegrees| Rotation degrees, default is 5|
-|MinLineThickness| Min Line Thickness, default is 0.7f|
-|MaxLineThickness| Max Line Thickness, default is 2.0f|
-|NoiseRate| Noise Rate, default is 800|
-|NoiseRateColor| Noise colors, default is { Color.Gray }|
+| Property           | Description                                                                                                                                                                                   |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| FontFamilies       | Characters fonts, default is "Arial", "Verdana", "Times New Roman" <br/> `Notice: This default fonts working only on Windows, if you want to run it on Linux you have to use the Linux fonts` |
+| TextColor          | Characters colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green }                                                                                  |
+| DrawLinesColor     | Line colors, default is { Color.Blue, Color.Black, Color.Black, Color.Brown, Color.Gray, Color.Green }                                                                                        |
+| Width              | Width of image box, default is 180                                                                                                                                                            |
+| Height             | Height of image box, default is 50                                                                                                                                                            |
+| FontSize           | Font size, default is 29                                                                                                                                                                      |
+| FontStyle          | Font Style: Regular,Bold,Italic,BoldItalic                                                                                                                                                    |
+| EncoderType        | Result file formant: Jpeg,Png                                                                                                                                                                 |
+| DrawLines          | Draw the random lines, default is 5                                                                                                                                                           |
+| MaxRotationDegrees | Rotation degrees, default is 5                                                                                                                                                                |
+| MinLineThickness   | Min Line Thickness, default is 0.7f                                                                                                                                                           |
+| MaxLineThickness   | Max Line Thickness, default is 2.0f                                                                                                                                                           |
+| NoiseRate          | Noise Rate, default is 800                                                                                                                                                                    |
+| NoiseRateColor     | Noise colors, default is { Color.Gray }                                                                                                                                                       |
 
 
 ## Install via CLI
@@ -58,7 +62,7 @@ SixLaborsCaptcha is a simple cross-platform NuGet package for generating image c
 ### To install SixLaborsCaptcha.Core, run the following command in the terminal: ###
 
 ```
-> dotnet add package SixLaborsCaptcha.Core --version 0.1.3
+> dotnet add package SixLaborsCaptcha.Core --version 0.2.0
 ```
 
 ## Usage:
@@ -92,7 +96,7 @@ namespace ConsoleAppSample
 
 ### To install SixLaborsCaptcha.Mvc.Core for ASP.NET Core MVC, run the following command in the Terminal: ###
 ```
-> dotnet add package SixLaborsCaptcha.Mvc.Core --version 0.1.3
+> dotnet add package SixLaborsCaptcha.Mvc.Core --version 0.2.0
 ```
 ## Usage:
 1. In the ConfigureServices method of Startup.cs, register the AddSixLabCaptcha generator
