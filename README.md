@@ -93,7 +93,7 @@ namespace ConsoleAppSample
 				TextColor = new Color[] { Color.Blue, Color.Black },
 			});
 
-			var key = Extentions.GetUniqueKey(6);
+			var key = Extensions.GetUniqueKey(6);
 			var result = slc.Generate(key);
 			File.WriteAllBytes($"six-labors-captcha.png", result);
 		}
@@ -132,7 +132,7 @@ using SixLaborsCaptcha.Core;
 [Route("[action]")]
 public FileResult GetCaptchaImage([FromServices] ISixLaborsCaptchaModule sixLaborsCaptcha)
 {
-	string key = Extentions.GetUniqueKey(6);
+	string key = Extensions.GetUniqueKey(6);
 	var imgText = sixLaborsCaptcha.Generate(key);
 	return File(imgText, "Image/Png");
 }
