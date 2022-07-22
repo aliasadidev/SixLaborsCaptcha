@@ -25,6 +25,7 @@ namespace SixLaborsCaptcha.Core
     public IImageEncoder Encoder => Core.Extentions.GetEncoder(EncoderType);
     public byte DrawLines { get; set; } = 5;
     public byte MaxRotationDegrees { get; set; } = 5;
+    public Color[] BackgroundColor { get; set; } = new Color[] { Color.White };
   }
 
 }

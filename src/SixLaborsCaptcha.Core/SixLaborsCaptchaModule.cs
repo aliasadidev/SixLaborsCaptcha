@@ -46,7 +46,7 @@ namespace SixLaborsCaptcha.Core
         // add the dynamic image to original image
         ushort size = (ushort)TextMeasurer.Measure(stringText, new TextOptions(font)).Width;
         var img = new Image<Rgba32>(size + 10 + 5, _options.Height);
-        img.Mutate(ctx => ctx.BackgroundColor(Color.White));
+        img.Mutate(ctx => ctx.BackgroundColor(_options.BackgroundColor[random.Next(0, _options.BackgroundColor.Length)]));
 
 
         Parallel.For(0, _options.DrawLines, i =>
