@@ -22,7 +22,7 @@ namespace SixLaborsCaptcha.Core
     public byte FontSize { get; set; } = 29;
     public FontStyle FontStyle { get; set; } = FontStyle.Regular;
     public EncoderTypes EncoderType { get; set; } = EncoderTypes.Png;
-    public IImageEncoder Encoder => Core.Extentions.GetEncoder(EncoderType);
+    public IImageEncoder Encoder => Core.Extensions.GetEncoder(EncoderType);
     public byte DrawLines { get; set; } = 5;
     public byte MaxRotationDegrees { get; set; } = 5;
     public Color[] BackgroundColor { get; set; } = new Color[] { Color.White };

@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 
 namespace SixLaborsCaptcha.Core
 {
-  public static class Extentions
+  public static class Extensions
   {
     public static IImageEncoder GetEncoder(EncoderTypes encoderType)
     {

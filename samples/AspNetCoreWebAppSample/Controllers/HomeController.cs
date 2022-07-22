@@ -9,7 +9,7 @@ namespace AspNetCoreWebAppSample.Controllers
 {
 	public class HomeController : Controller
 	{
-		
+
 		public IActionResult Index()
 		{
 			return View();
@@ -19,7 +19,7 @@ namespace AspNetCoreWebAppSample.Controllers
 		[Route("[action]")]
 		public FileResult GetCaptchaImage([FromServices] ISixLaborsCaptchaModule sixLaborsCaptcha)
 		{
-			string key = Extentions.GetUniqueKey(6);
+			string key = Extensions.GetUniqueKey(6);
 			var imgText = sixLaborsCaptcha.Generate(key);
 			return File(imgText, "Image/Png");
 		}

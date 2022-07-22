@@ -57,7 +57,7 @@ namespace SixLaborsCaptcha.Core
           int y1 = random.Next(0, img.Height);
           img.Mutate(ctx =>
                   ctx.DrawLines(_options.DrawLinesColor[random.Next(0, _options.DrawLinesColor.Length)],
-                                Extentions.GenerateNextFloat(_options.MinLineThickness, _options.MaxLineThickness),
+                                Extensions.GenerateNextFloat(_options.MinLineThickness, _options.MaxLineThickness),
                                 new PointF[] { new PointF(x0, y0), new PointF(x1, y1) })
                   );
         });
@@ -71,7 +71,7 @@ namespace SixLaborsCaptcha.Core
           img.Mutate(
                       ctx => ctx
                           .DrawLines(_options.NoiseRateColor[random.Next(0, _options.NoiseRateColor.Length)],
-                          Extentions.GenerateNextFloat(0.5, 1.5), new PointF[] { new Vector2(x0, y0), new Vector2(x0, y0) })
+                          Extensions.GenerateNextFloat(0.5, 1.5), new PointF[] { new Vector2(x0, y0), new Vector2(x0, y0) })
                   );
         });
 

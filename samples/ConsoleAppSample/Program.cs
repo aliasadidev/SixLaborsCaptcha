@@ -25,7 +25,7 @@ namespace ConsoleAppSample
 
       for (int i = 0; i < 10; i++)
       {
-        var key = Extentions.GetUniqueKey(6);
+        var key = Extensions.GetUniqueKey(6);
         var result = slc.Generate(key);
         File.WriteAllBytes($"six-labors-captcha-{i}.png", result);
         //System.Threading.Thread.Sleep(1000);
