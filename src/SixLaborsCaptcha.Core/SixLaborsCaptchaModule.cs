@@ -53,7 +53,7 @@ namespace SixLaborsCaptcha.Core
         {
           int x0 = random.Next(0, random.Next(0, 30));
           int y0 = random.Next(10, img.Height);
-          int x1 = random.Next(70, img.Width);
+          int x1 = random.Next(img.Width - random.Next(0, ((int)(img.Width * 0.25))), img.Width);
           int y1 = random.Next(0, img.Height);
           img.Mutate(ctx =>
                   ctx.DrawLines(_options.DrawLinesColor[random.Next(0, _options.DrawLinesColor.Length)],
