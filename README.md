@@ -82,7 +82,7 @@ SixLaborsCaptcha is a simple cross-platform NuGet package for generating image c
 ### To install SixLaborsCaptcha.Core, run the following command in the terminal: ###
 
 ```
-> dotnet add package SixLaborsCaptcha.Core --version 0.2.1
+> dotnet add package SixLaborsCaptcha.Core --version 1.0.0
 ```
 
 ## Usage:

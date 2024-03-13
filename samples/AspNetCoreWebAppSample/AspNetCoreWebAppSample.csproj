@@ -9,8 +9,8 @@
     <PackageReference Include="Microsoft.Extensions.Options" Version="8.*" />
   </ItemGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.*" />
-    <PackageReference Include="Microsoft.Extensions.Options" Version="8.*" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.*" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.*" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\SixLaborsCaptcha.Mvc.Core\SixLaborsCaptcha.Mvc.Core.csproj" />
