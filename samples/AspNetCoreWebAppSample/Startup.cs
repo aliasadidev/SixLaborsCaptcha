@@ -3,55 +3,53 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SixLabors.ImageSharp;
 using SixLaborsCaptcha.Mvc.Core;
 
-namespace AspNetCoreWebAppSample
+namespace AspNetCoreWebAppSample;
+
+#pragma warning disable IDE0300
+#pragma warning disable IDE0290
+
+public class Startup
 {
-	public class Startup
-	{
-		public Startup(IConfiguration configuration)
-		{
-			Configuration = configuration;
-		}
+  public Startup(IConfiguration configuration)
+    => Configuration = configuration;
+  public IConfiguration Configuration { get; }
 
-		public IConfiguration Configuration { get; }
+  // This method gets called by the runtime. Use this method to add services to the container.
+  public void ConfigureServices(IServiceCollection services)
+  {
+    services.AddSixLabCaptcha(x =>
+    {
+      x.DrawLines = 5;
+      x.TextColor = new Color[] { Color.Gray, Color.Gray };
+    });
 
-		// This method gets called by the runtime. Use this method to add services to the container.
-		public void ConfigureServices(IServiceCollection services)
-		{
-			services.AddSixLabCaptcha(x =>
-			{
-				x.DrawLines = 4;
-			});
+    services.AddRazorPages();
+  }
 
-			services.AddRazorPages();
-		}
+  // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+  public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+  {
+    if (env.IsDevelopment())
+    {
+      app.UseDeveloperExceptionPage();
+    }
+    else
+    {
+      app.UseExceptionHandler("/Error");
+    }
 
-		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-		{
-			if (env.IsDevelopment())
-			{
-				app.UseDeveloperExceptionPage();
-			}
-			else
-			{
-				app.UseExceptionHandler("/Error");
-			}
+    app.UseRouting();
 
-			app.UseStaticFiles();
-
-			app.UseRouting();
-
-			app.UseAuthorization();
-
-			app.UseEndpoints(endpoints =>
-			{
-				endpoints.MapRazorPages();
-				endpoints.MapControllerRoute(
-					name: "default",
-					pattern: "{controller=Home}/{action=Index}");
-			});
-		}
-	}
+    app.UseEndpoints(endpoints =>
+    {
+      endpoints.MapRazorPages();
+      endpoints.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}");
+    });
+  }
 }
+

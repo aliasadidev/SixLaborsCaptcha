@@ -10,6 +10,12 @@ SixLaborsCaptcha is a simple cross-platform NuGet package for generating image c
 
 # What's New
 
+## Version 1.0.0 - March 13, 2024
+#### Update
+* Upgrade SixLabors.ImageSharp.* packages 
+* Drop support of .net standard
+* Support .net 8
+
 ## Version 0.2.2 - Sep 26, 2022
 #### Fix
 * Fixed a bug in draw lines feature
@@ -110,7 +116,7 @@ namespace ConsoleAppSample
 
 ### To install SixLaborsCaptcha.Mvc.Core for ASP.NET Core MVC, run the following command in the Terminal: ###
 ```
-> dotnet add package SixLaborsCaptcha.Mvc.Core --version 0.2.2
+> dotnet add package SixLaborsCaptcha.Mvc.Core --version 1.0.0
 ```
 ## Usage:
 1. In the ConfigureServices method of Startup.cs, register the AddSixLabCaptcha generator

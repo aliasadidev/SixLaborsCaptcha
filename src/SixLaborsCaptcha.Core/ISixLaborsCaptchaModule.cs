@@ -1,7 +1,7 @@
-﻿namespace SixLaborsCaptcha.Core
+namespace SixLaborsCaptcha.Core;
+
+public interface ISixLaborsCaptchaModule
 {
-	public interface ISixLaborsCaptchaModule
-	{
-		byte[] Generate(string stringText);
-	}
+  byte[] Generate(string stringText);
 }
+

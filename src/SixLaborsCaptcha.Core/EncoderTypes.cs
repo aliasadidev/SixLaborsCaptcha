@@ -1,8 +1,7 @@
-﻿namespace SixLaborsCaptcha
+namespace SixLaborsCaptcha;
+
+public enum EncoderTypes : byte
 {
-	public enum EncoderTypes
-	{
-		Jpeg,
-		Png,
-	}
+  Jpeg,
+  Png,
 }
